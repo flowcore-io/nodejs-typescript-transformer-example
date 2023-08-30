@@ -57,6 +57,6 @@ jobs:
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
         with:
           path: |
-            ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
+            dist/${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
           upload-release-files: true
           release-upload-url: ${{ github.event.release.upload_url }}
