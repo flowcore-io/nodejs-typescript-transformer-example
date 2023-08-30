@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.3...v1.0.4) (2023-08-30)
+
+
+### Bug Fixes
+
+* added production node modules to dist before compressing artifact ([f683906](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/f683906875f9f5e14287116a81cdfa5f51545bda))
+
 ## [1.0.3](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.2...v1.0.3) (2023-08-30)
 
 
