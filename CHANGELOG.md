@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.6...v1.1.0) (2023-08-30)
+
+
+### Features
+
+* added tests ([ab4c8fc](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/ab4c8fcca45cdcf6445973098a51a1284d8844b7))
+
+
+### Bug Fixes
+
+* added github host address ([c920023](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/c92002352fcdcbe0b1f493649b8a74c9395dc3b5))
+* added tests and lint to workflow ([ff09f9f](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/ff09f9fa8961bb1973388e4157961ec420190738))
+* added tests and lint to workflow ([329b13b](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/329b13bcb26c98b89c2f7abb7cb13b64ef3b408c))
+
 ## [1.0.6](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.5...v1.0.6) (2023-08-30)
 
 
