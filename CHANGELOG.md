@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.4...v1.0.5) (2023-08-30)
+
+
+### Bug Fixes
+
+* exclude the dist folder path in the zip file ([9d20fc5](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/9d20fc5ded7e3cb878af375ba26ba150954e6748))
+
 ## [1.0.4](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.3...v1.0.4) (2023-08-30)
 
 
