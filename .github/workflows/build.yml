@@ -6,7 +6,7 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
 
 jobs:
 
@@ -52,8 +52,6 @@ jobs:
 
       - name: Upload artifact and release
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
-        permissions:
-          contents: write
         with:
           path: |
             ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
