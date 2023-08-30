@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.0...v1.0.1) (2023-08-30)
+
+
+### Bug Fixes
+
+* added missing required asset name ([9944862](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/99448623df2848e61c95c51015691f6972b05f79))
+
 ## 1.0.0 (2023-08-30)
 
 
