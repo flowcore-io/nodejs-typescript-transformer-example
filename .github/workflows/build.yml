@@ -50,7 +50,8 @@ jobs:
           yarn install --frozen-lockfile --production --modules-folder dist/node_modules
 
       - name: Compress Artifact
-        run: zip -r ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip dist
+        run: zip -r ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip .
+        working-directory: dist
 
       - name: Upload artifact and release
         uses: nanoufo/action-upload-artifacts-and-release-assets@main
