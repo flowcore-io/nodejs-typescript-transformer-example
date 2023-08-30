@@ -1,0 +1,40 @@
+name: Test
+
+on:
+  push:
+    branches-ignore: [ "main" ]
+
+env:
+  NODE_VERSION: ">=18.12.1"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: "${{ env.NODE_VERSION }}"
+          cache: yarn
+      - name: Yarn install
+        run: |
+          yarn install --frozen-lockfile
+#      - name: Lint
+#        run: yarn lint
+      - name: Validate Build
+        run: yarn build
+#      - name: Start Dependencies
+#        run: |
+#          docker-compose -f test/docker/docker-compose.yaml up -d
+#          chmod +x test/docker/await-testing.sh
+#          test/docker/await-testing.sh
+#      - name: Test
+#        run: yarn test --runInBand --detectOpenHandles --forceExit
