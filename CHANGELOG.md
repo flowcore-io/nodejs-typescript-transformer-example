@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.2...v1.0.3) (2023-08-30)
+
+
+### Bug Fixes
+
+* added write permission ([04a64ef](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/04a64efb0f8d65afde061adf76e491d07fc64b1f))
+
 ## [1.0.2](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.1...v1.0.2) (2023-08-30)
 
 
