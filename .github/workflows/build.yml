@@ -57,3 +57,4 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
+          asset_name: ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}
