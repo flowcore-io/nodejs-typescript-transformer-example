@@ -15,7 +15,7 @@ app.post("/transform", (req: Request, res: Response): Response => {
   // transform the payload here, return the transformed payload in the response
   const { eventId, validTime, payload } = req.body;
 
-  console.log("Received payload", eventId, validTime, payload);
+  console.log("Received2 payload", eventId, validTime, payload);
 
   return res.send({
     eventId,
