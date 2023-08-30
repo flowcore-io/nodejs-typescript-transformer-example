@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.1...v1.0.2) (2023-08-30)
+
+
+### Bug Fixes
+
+* changed upload artifact release ([14b6b5a](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/14b6b5a00fd60d9574e771c3dad433e7a08bd819))
+
 ## [1.0.1](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.0...v1.0.1) (2023-08-30)
 
 
