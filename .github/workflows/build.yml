@@ -44,10 +44,12 @@ jobs:
           yarn install --frozen-lockfile
       #      - name: Lint
       #        run: yarn lint
-      - name: Validate Build
-        run: yarn build
+      - name: Build Artifact
+        run: |
+          yarn build
+          yarn install --frozen-lockfile --production --modules-folder dist/node_modules
 
-      - name: zip dist
+      - name: Compress Artifact
         run: zip -r ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip dist
 
       - name: Upload artifact and release
