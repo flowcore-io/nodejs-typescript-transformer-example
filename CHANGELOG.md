@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.5...v1.0.6) (2023-08-30)
+
+
+### Bug Fixes
+
+* changed path to include zipped file ([b072fd5](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/b072fd5068975b5349851f5e58e91a6f6f8fd77c))
+
 ## [1.0.5](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.4...v1.0.5) (2023-08-30)
 
 
