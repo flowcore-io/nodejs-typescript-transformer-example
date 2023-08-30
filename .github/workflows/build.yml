@@ -50,11 +50,12 @@ jobs:
       - name: zip dist
         run: zip -r ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip dist
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload artifact and release
+        uses: nanoufo/action-upload-artifacts-and-release-assets@main
+        permissions:
+          contents: write
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
-          asset_name: ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}
+          path: |
+            ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip
+          upload-release-files: true
+          release-upload-url: ${{ github.event.release.upload_url }}
