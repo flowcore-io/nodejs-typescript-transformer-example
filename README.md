@@ -4,7 +4,7 @@ This repository contains a simple example of a NodeJS Typescript Transformer.
 
 ## Entrypoint
 
-The `server.ts` file is the entrypoint for the transformer. It contains the following endpoints:
+The `main.ts` file is the entrypoint for the transformer. It contains the following endpoints:
 
 ### GET /health
 
@@ -42,7 +42,19 @@ In another terminal or tab, run:
 yarn test:watch
 ```
 
-When changes are made to the `server.ts` file the transformer will be reloaded and the tests will be run again.
+When changes are made any of the files the transformer will be reloaded and the tests will be run again.
+
+### Change the transformer
+
+To change the transformer, edit the `transform.entrypoint.ts` file. To add functionality on startup edit the `start.entrypoint.ts` file. To add additional health checks edit the `health.entrypoint.ts` file.
+
+### Change the input and output data
+
+To change the validation of inputs and outputs edit the `test/expected.json` file. This file specify the event payloads that are sent to the transformer and the expected output. The `:uuid:` and `:date:` values for the expected outcome matches to any string.
+
+### Further customization
+
+Change the `test/app.spec.ts` file to add additional tests and more advanced validation. Further change the files in the `src` directory to add more advanced logic.
 
 ## Deployment
 
