@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.1.0...v1.2.0) (2023-08-31)
+
+
+### Features
+
+* streamlined DX with JSON configuration ([bd1f9b9](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/bd1f9b94b7452020906f2c89da9d7def20ca551f))
+
 ## [1.1.0](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.0.6...v1.1.0) (2023-08-30)
 
 
