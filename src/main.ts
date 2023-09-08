@@ -3,9 +3,9 @@
 // necessary to modify this file for a basic transformer.
 // -------------------------------------------------------------------
 import express, {Request, Response} from "express";
-import health from "./health.entrypoint";
-import transform from "./transform.entrypoint";
-import start from "./start.entrypoint";
+import health from "@functions/health.entrypoint";
+import transform from "@functions/transform.entrypoint";
+import start from "@functions/start.entrypoint";
 
 const app = express();
 

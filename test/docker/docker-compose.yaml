@@ -3,7 +3,7 @@ version: "3.8"
 services:
   shell:
     container_name: transformer-shell
-    image: flowcoreio/adapter-nodejs-transformer-shell:latest
+    image: flowcoreio/adapter-nodejs-transformer-shell:1.4.1
     ports:
       - "3001:3001"
     environment:
@@ -13,4 +13,3 @@ services:
       PORT: 3001
     volumes:
       - ./../../dist:/app/transformers/test-transformer
-      - ./../../node_modules:/app/transformers/test-transformer/node_modules
