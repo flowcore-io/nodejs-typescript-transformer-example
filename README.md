@@ -25,6 +25,11 @@ install dependencies:
 yarn install
 ```
 
+build the transformer:
+```bash
+yarn build
+```
+
 run the transformer shell
 ```bash
 docker-compose -f test/docker/docker-compose.yaml up -d
