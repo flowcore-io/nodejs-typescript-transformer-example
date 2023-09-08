@@ -27,7 +27,7 @@ yarn install
 
 run the transformer shell
 ```bash
-docker-compose up -d
+docker-compose -f test/docker/docker-compose.yaml up -d
 ```
 
 ## Development
