@@ -47,6 +47,10 @@ In another terminal or tab, run:
 yarn test:watch
 ```
 
+> Note!
+> ---
+> Running the tests on Mac Docker requires VirtioFS to be enabled
+
 When changes are made any of the files the transformer will be reloaded and the tests will be run again.
 
 ### Change the transformer
