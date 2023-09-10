@@ -22,12 +22,7 @@ prerequisites:
 
 install dependencies:
 ```bash
-yarn install
-```
-
-build the transformer:
-```bash
-yarn build
+yarn install && yarn build
 ```
 
 run the transformer shell
@@ -39,17 +34,13 @@ docker-compose -f test/docker/docker-compose.yaml up -d
 
 To start developing with tests and watch mode run:
 ```bash
-yarn dev
+yarn build:watch
 ```
 
 In another terminal or tab, run:
 ```bash
 yarn test:watch
 ```
-
-> Note!
-> ---
-> Running the tests on Mac Docker requires VirtioFS to be enabled
 
 When changes are made any of the files the transformer will be reloaded and the tests will be run again.
 
