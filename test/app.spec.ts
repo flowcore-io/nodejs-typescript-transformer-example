@@ -10,6 +10,8 @@ import {Server} from "http";
 import {TransformerBlueprint} from "./fixtures/dtos/transformer-blueprint.dto";
 import * as fs from "fs";
 import * as path from "path";
+import waitForExpect from "wait-for-expect";
+
 
 dayjs.extend(utc);
 
@@ -21,6 +23,8 @@ const TRANSFORMER_BLUEPRINT: TransformerBlueprint = {
   entrypoint: "main.js",
   startTimeTimeout: 10000,
 } as TransformerBlueprint;
+
+const receiverPort = 40300;
 
 describe("NodeJS Test Transformer (e2e)", () => {
   jest.setTimeout(1000000);
@@ -38,8 +42,20 @@ describe("NodeJS Test Transformer (e2e)", () => {
       res.status(201).send();
     });
 
-    server = app.listen(3002, () => {
-      console.log("Receiver started on port 3002");
+    app.get("/health", (req, res) => {
+      res.send("OK");
+    });
+
+    server = app.listen(receiverPort, () => {
+      console.log(`Receiver started on port ${receiverPort}`);
+    });
+
+
+
+    await waitForExpect(async () => {
+      const healthResponse =
+        await axios.get(`http://localhost:${receiverPort}/health`);
+      expect(healthResponse.status).toEqual(200);
     });
 
     const axiosResponse = await axios.post(
@@ -66,7 +82,7 @@ describe("NodeJS Test Transformer (e2e)", () => {
     for (const expectedConfiguration of expected) {
       const eventTime = dayjs.utc(faker.date.recent());
       const data: TransformData = {
-        destination: `http://${process.env.HOST_ADDRESS}:3002/store/${receiverName}`,
+        destination: `http://${process.env.HOST_ADDRESS}:${receiverPort}/store/${receiverName}`,
         definition,
         event: {
           eventId: faker.string.uuid(),
@@ -112,7 +128,12 @@ describe("NodeJS Test Transformer (e2e)", () => {
   });
 
   afterAll(async () => {
-    await axios.post("http://localhost:3001/unload/" + processId);
+    console.log("Unloading transformer", processId);
+    try {
+      await axios.post("http://localhost:3001/unload/" + processId);
+    } catch (e) {
+      console.log("Error unloading transformer", e);
+    }
     server.close();
   });
 });
