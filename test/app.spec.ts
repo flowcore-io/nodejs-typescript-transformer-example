@@ -63,6 +63,8 @@ describe("NodeJS Test Transformer (e2e)", () => {
       TRANSFORMER_BLUEPRINT,
     );
 
+    console.log("Loaded transformer", axiosResponse.data);
+
     expect(axiosResponse.data.processId).toBeDefined();
 
     processId = axiosResponse.data.processId;
