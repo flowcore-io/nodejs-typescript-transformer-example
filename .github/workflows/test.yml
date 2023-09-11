@@ -31,7 +31,9 @@ jobs:
         run: yarn lint
       - name: Build Transformer
         run: yarn build
-      - name: Start Shell
+      - name: List Build Directory
+        run: ls -la dist
+      - name: Start Transformer Shell
         run: |
           docker-compose -f test/docker/docker-compose.yaml up -d
           chmod +x test/docker/await-testing.sh
