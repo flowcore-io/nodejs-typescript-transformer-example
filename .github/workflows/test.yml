@@ -29,9 +29,9 @@ jobs:
           yarn install --frozen-lockfile
       - name: Lint
         run: yarn lint
-      - name: Validate Build
+      - name: Build Transformer
         run: yarn build
-      - name: Start Dependencies
+      - name: Start Shell
         run: |
           docker-compose -f test/docker/docker-compose.yaml up -d
           chmod +x test/docker/await-testing.sh
