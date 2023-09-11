@@ -32,7 +32,7 @@ docker-compose -f test/docker/docker-compose.yaml up -d
 
 ## Development
 
-To start developing with tests and watch mode run:
+To start developing with watch mode run:
 ```bash
 yarn build:watch
 ```
@@ -41,6 +41,8 @@ In another terminal or tab, run:
 ```bash
 yarn test:watch
 ```
+
+to run the tests on the built transformer.
 
 When changes are made any of the files the transformer will be reloaded and the tests will be run again.
 
