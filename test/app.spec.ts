@@ -56,15 +56,11 @@ describe("NodeJS Test Transformer (e2e)", () => {
       expect(healthResponse.status).toEqual(200);
     });
 
-    console.log("Health check passed, loading transformer");
-
     try {
       const axiosResponse = await axios.post(
         "http://localhost:3001/load",
         TRANSFORMER_BLUEPRINT,
       );
-
-      console.log("Loaded transformer", axiosResponse.data);
 
       expect(axiosResponse.data.processId).toBeDefined();
 

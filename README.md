@@ -46,6 +46,9 @@ to run the tests on the built transformer.
 
 When changes are made any of the files the transformer will be reloaded and the tests will be run again.
 
+> **Note**!
+> The dist directory needs to be writable by the transformer shell.
+
 ### Change the transformer
 
 To change the transformer, edit the `transform.entrypoint.ts` file. To add functionality on startup edit the `start.entrypoint.ts` file. To add additional health checks edit the `health.entrypoint.ts` file.
