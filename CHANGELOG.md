@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.1](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.3.0...v1.3.1) (2023-10-04)
+
+
+### Bug Fixes
+
+* fixed eventid and validtime return ([3872cf7](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/3872cf7ae0fdd518216d549c410d674adab2013b))
+* us a non-flowcore related environment variable name ([52114f7](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/52114f7682c02c884edd5dfd415c17bb32b8a8d6))
+
 ## [1.3.0](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.2.0...v1.3.0) (2023-09-12)
 
 
