@@ -17,7 +17,7 @@ dayjs.extend(utc);
 
 const TRANSFORMER_BLUEPRINT: TransformerBlueprint = {
   name: "test-transformer",
-  version: "1.0.0",
+  version: "1.0.1",
   runtime: "node",
   artifactUrl: "/app/transformers/test-transformer",
   entrypoint: "main.js",
