@@ -15,14 +15,7 @@ import waitForExpect from "wait-for-expect";
 
 dayjs.extend(utc);
 
-const TRANSFORMER_BLUEPRINT: TransformerBlueprint = {
-  name: "test-transformer",
-  version: "1.0.1",
-  runtime: "node",
-  artifactUrl: "/app/transformers/test-transformer",
-  entrypoint: "main.js",
-  startTimeTimeout: 10000,
-} as TransformerBlueprint;
+const TRANSFORMER_BLUEPRINT: TransformerBlueprint = JSON.parse(fs.readFileSync(path.join(process.cwd(), "test/config", "transformer.json"), "utf-8"));
 
 const receiverPort = 40300;
 
@@ -31,7 +24,6 @@ describe("NodeJS Test Transformer (e2e)", () => {
   const listeners = new Map<string, jest.MockedFn<any>>();
   const app = express();
   let server: Server;
-  let processId: string;
 
   beforeAll(async () => {
     app.use(express.json());
@@ -56,20 +48,18 @@ describe("NodeJS Test Transformer (e2e)", () => {
       expect(healthResponse.status).toEqual(200);
     });
 
-    try {
-      const axiosResponse = await axios.post(
-        "http://localhost:3001/load",
-        TRANSFORMER_BLUEPRINT,
+    await waitForExpect(async () => {
+      console.debug(`Checking if transformer is loaded on http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`);
+      const axiosResponse = await axios.get(
+        `http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`,
       );
 
-      expect(axiosResponse.data.processId).toBeDefined();
+      if (axiosResponse.status !== 200) {
+        console.debug(`Transformer not loaded on http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`, axiosResponse.data);
+      }
 
-      processId = axiosResponse.data.processId;
-    }
-    catch (e) {
-      console.log("Error loading transformer", e);
-    }
-
+      expect(axiosResponse.status).toEqual(200);
+    }, 10000, 1000);
   });
 
   it("should load and process data through a transformer", async () => {
@@ -100,7 +90,7 @@ describe("NodeJS Test Transformer (e2e)", () => {
       };
 
       const processedResult = await axios.post(
-        "http://localhost:3001/transform/" + processId,
+        "http://localhost:3001/transform",
         data,
       );
 
@@ -132,12 +122,6 @@ describe("NodeJS Test Transformer (e2e)", () => {
   });
 
   afterAll(async () => {
-    console.log("Unloading transformer", processId);
-    try {
-      await axios.post("http://localhost:3001/unload/" + processId);
-    } catch (e) {
-      console.log("Error unloading transformer", e);
-    }
     server.close();
   });
 });
