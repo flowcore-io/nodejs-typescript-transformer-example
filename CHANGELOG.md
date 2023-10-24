@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.3.1...v2.0.0) (2023-10-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* updated example transformer to use new transformer shell v 2.x
+
+### Features
+
+* updated example transformer to use new transformer shell v 2.x ([4c457f9](https://github.com/flowcore-io/nodejs-typescript-transformer-example/commit/4c457f967b90707f3c916daa182ee947900ec997))
+
 ## [1.3.1](https://github.com/flowcore-io/nodejs-typescript-transformer-example/compare/v1.3.0...v1.3.1) (2023-10-04)
 
 
