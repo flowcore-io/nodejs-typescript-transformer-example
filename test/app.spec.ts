@@ -7,7 +7,6 @@ import {FLOWCORE_CONSTANT_TIME_BUCKET_FORMAT} from "./fixtures/constants";
 import _ from "lodash";
 import express from "express";
 import {Server} from "http";
-import {TransformerBlueprint} from "./fixtures/dtos/transformer-blueprint.dto";
 import * as fs from "fs";
 import * as path from "path";
 import waitForExpect from "wait-for-expect";
@@ -15,9 +14,8 @@ import waitForExpect from "wait-for-expect";
 
 dayjs.extend(utc);
 
-const TRANSFORMER_BLUEPRINT: TransformerBlueprint = JSON.parse(fs.readFileSync(path.join(process.cwd(), "test/config", "transformer.json"), "utf-8"));
-
 const receiverPort = 40300;
+const adapterPort = 3001;
 
 describe("NodeJS Test Transformer (e2e)", () => {
   jest.setTimeout(1000000);
@@ -49,13 +47,13 @@ describe("NodeJS Test Transformer (e2e)", () => {
     });
 
     await waitForExpect(async () => {
-      console.debug(`Checking if transformer is loaded on http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`);
+      console.debug(`Checking if transformer is loaded on http://localhost:${adapterPort}/health`);
       const axiosResponse = await axios.get(
-        `http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`,
+        `http://localhost:${adapterPort}/health`,
       );
 
       if (axiosResponse.status !== 200) {
-        console.debug(`Transformer not loaded on http://localhost:${TRANSFORMER_BLUEPRINT.port}/health`, axiosResponse.data);
+        console.debug(`Transformer not loaded on http://localhost:${adapterPort}/health`, axiosResponse.data);
       }
 
       expect(axiosResponse.status).toEqual(200);
