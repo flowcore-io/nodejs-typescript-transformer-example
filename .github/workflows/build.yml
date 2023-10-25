@@ -48,6 +48,7 @@ jobs:
         run: |
           yarn build
           yarn install --frozen-lockfile --production --modules-folder dist/node_modules
+          rm dist/package.json
 
       - name: Compress Artifact
         run: zip -r ${{ steps.package.outputs.value }}-${{ steps.version.outputs.value }}.zip .
