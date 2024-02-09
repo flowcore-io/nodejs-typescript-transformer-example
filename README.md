@@ -100,6 +100,12 @@ run the transformer shell
 docker-compose -f test/docker/docker-compose.yaml up -d
 ```
 
+Create a .env file with the following content:
+
+```bash
+HOST_ADDRESS=host.docker.internal
+```
+
 ### 2. 💻 Development
 
 To start developing with watch mode run:
